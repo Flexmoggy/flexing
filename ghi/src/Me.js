@@ -1,4 +1,4 @@
-function Construct() {
+function Me() {
   return (
     <div className="App">
       <header className="App-header">
@@ -16,4 +16,4 @@ function Construct() {
   );
 }
 
-export default Construct;
+export default Me;
