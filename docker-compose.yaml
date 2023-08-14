@@ -14,7 +14,7 @@ services:
       context: api
       dockerfile: Dockerfile.dev
     ports:
-      - 8000:8000
+      - "8000:8000"
     volumes:
       - ./api:/app
 
@@ -31,24 +31,25 @@ services:
       NODE_ENV: development
       HOST: "0.0.0.0"
       PUBLIC_URL: http://localhost:3000
-      REACT_APP_API_HOST: ${REACT_APP_API_HOST}
+      REACT_APP_API_HOST: http://localhost:8000
 
   db:
     image: postgres:14.5-bullseye
-    enviorment:
+    environment:
       POSTGRES_PASSWORD: Secretmove
       POSTGRES_USER: 2ter_admin
       POSTGRES_DB: DataBucket
-    ports: -"4000:4090"
+    ports:
+      - "4000:4090"
     volumes:
       - dataBucket:/var/lib/postgresql/data
 
-pg-admin:
+  pg-admin:
     image: dpage/pgadmin4
     volumes:
       - pg-admin:/var/lib/pgadmin
     ports:
-      - 8082:80
+      - "8082:80"
     environment:
       PGADMIN_DEFAULT_EMAIL: admin@email.com
       PGADMIN_DEFAULT_PASSWORD: password
