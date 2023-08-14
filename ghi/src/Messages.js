@@ -1,14 +1,14 @@
-function ViewProfile() {
+function Messages() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>View Profile</h1>
+        <h1>Messages</h1>
         <h2>
-          A place to see one other person's profile
+          A place for your messages
         </h2>
       </header>
     </div>
   );
 }
 
-export default ViewProfile;
+export default Messages;
