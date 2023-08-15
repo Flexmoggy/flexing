@@ -32,7 +32,7 @@ class EventRepository:
                             expired,
                             created_at,
                             zoom_link,
-                            category
+                            category,
                         )
                     VALUES
                         (%s, %s, %s, %s, %s, %s, %s, %s)
