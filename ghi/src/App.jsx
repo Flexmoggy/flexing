@@ -1,10 +1,10 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import "./App.css";
 import Nav from './Nav';
-import Me from './Me.js';
-import Profiles from './Profiles.js';
-import ViewProfile from './ViewProfile.js';
-import Messages from './Messages.js';
+import Me from './Me';
+import Profiles from './Profiles';
+import ViewProfile from './ViewProfile';
+import Messages from './Messages';
 
 function App() {
     return (
@@ -12,7 +12,6 @@ function App() {
       <Nav />
       <div className="container">
         <Routes>
-          <Route path="/" element={<Profiles />} />
           <Route path="/profiles" element={<Profiles />} />
           <Route path="/my_profile" element={<Me />} />
           <Route path="/view_profile" element={<ViewProfile />} />

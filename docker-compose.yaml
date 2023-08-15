@@ -1,5 +1,5 @@
 volumes:
-  dataBucket:
+  DataBucket:
     external: true
   pg-admin:
     external: true
@@ -8,7 +8,7 @@ services:
     environment:
       CORS_HOST: http://localhost:3000
       DATABASE_URL: postgresql://2ter_admin:Secretmove@db/DataBucket
-      WAIT_HOSTS: db:4090
+      WAIT_HOSTS: db:5432
       PORT: 8000
     build:
       context: api
@@ -30,7 +30,7 @@ services:
       NODE_ENV: development
       HOST: "0.0.0.0"
       PUBLIC_URL: http://localhost:3000
-      REACT_APP_API_HOST: http://localhost:8000
+      REACT_APP_API_HOST: http://localhost:3000
 
   db:
     image: postgres:14.5-bullseye
@@ -38,7 +38,18 @@ services:
       POSTGRES_PASSWORD: Secretmove
       POSTGRES_USER: 2ter_admin
       POSTGRES_DB: DataBucket
-    ports: 
-    - 4000:4090
+    ports:
+      - "15432:5432"
     volumes:
-      - dataBucket:/var/lib/postgresql/data
+      - DataBucket:/var/lib/postgresql/data
+
+  pg-admin:
+    image: dpage/pgadmin4
+    volumes:
+      - pg-admin:/var/lib/pgadmin
+    ports:
+      - "8082:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@email.com
+      PGADMIN_DEFAULT_PASSWORD: password
+      PGADMIN_DISABLE_POSTFIX: 1
