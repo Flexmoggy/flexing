@@ -5,10 +5,8 @@ import os
 from routers import profiles
 
 app = FastAPI()
-app.include_router(
-    profiles.router,
-    events.router,
-    )
+app.include_router(profiles.router)
+app.include_router(events.router)
 
 app.add_middleware(
     CORSMiddleware,

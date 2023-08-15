@@ -1,11 +1,14 @@
-from fastapi import APIRouter
-from queries.events import EventIn
+from fastapi import APIRouter, Depends
+from queries.events import EventIn, EventRepository
 
 
 router = APIRouter()
 
 
 @router.post("/event")
-def create_event(event: EventIn):
-    print('event', event)
+def create_event(
+    event: EventIn,
+    repo: EventRepository = Depends()
+):
+    repo.create(event)
     return event
