@@ -5,12 +5,10 @@ from typing import Union, List
 
 router = APIRouter()
 
-#/event --> /events
+
 @router.post("/events", response_model=Union[EventOut, Error])
 def create_event(
-    event: EventIn,
-    response: Response,
-    repo: EventRepository = Depends()
+    event: EventIn, response: Response, repo: EventRepository = Depends()
 ):
     created_event = repo.create(event)
     if isinstance(created_event, EventOut):
@@ -25,3 +23,12 @@ def get_all(
     repo: EventRepository = Depends(),
 ):
     return repo.get_all()
+
+
+@router.put("/events/{event_id}", response_model=Union[Error, EventOut])
+def update_event(
+    event_id: int,
+    event: EventIn,
+    repo: EventRepository = Depends(),
+) -> Union[Error, EventOut]:
+    pass

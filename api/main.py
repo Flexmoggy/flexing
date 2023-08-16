@@ -1,18 +1,9 @@
-<<<<<<< HEAD
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 import os
+from routers import profiles, reviews, events
 from psycopg_pool import ConnectionPool
 from authenticator import MyAuthenticator
-from fastapi.middleware.cors import CORSMiddleware
-from fastapi import FastAPI
-from routers import accounts
-from routers import profiles
-=======
-from fastapi import FastAPI
-from routers import events
-from fastapi.middleware.cors import CORSMiddleware
-import os
-from routers import profiles, reviews
->>>>>>> 07bb1e9a4afcd1ff4da0d0254a945f01eb482928
 
 pool = ConnectionPool(conninfo=os.environ.get("DATABASE_URL"))
 
