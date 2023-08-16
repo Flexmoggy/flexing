@@ -31,6 +31,9 @@ class ProfileOut(BaseModel):
 
 
 class ProfileRepository:
+    def update(self, profile_id: int, profile: ProfileIn) -> Union[ProfileOut, Error]:
+        pass
+
     def get_all(self) -> Union[Error, List[ProfileOut]]:
         try:
             with pool.connection() as conn:

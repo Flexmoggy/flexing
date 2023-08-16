@@ -2,7 +2,7 @@ steps = [
     [
         # "Up" SQL statement
         """
-        CREATE TABLE profile (
+        CREATE TABLE user (
             id SERIAL PRIMARY KEY NOT NULL,
             email VARCHAR(100) NOT NULL,
             username VARCHAR(100) NOT NULL,
@@ -11,7 +11,7 @@ steps = [
         """,
         # "Down" SQL statement
         """
-        DROP TABLE profile;
+        DROP TABLE user;
         """
     ]
 ]
