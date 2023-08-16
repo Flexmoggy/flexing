@@ -10,6 +10,7 @@ class ReviewIn(BaseModel):
     rating: int
     review: str
 
+
 class ReviewRepository:
     def create(review: ReviewIn):
         pass
