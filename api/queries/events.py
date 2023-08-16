@@ -28,9 +28,12 @@ class EventOut(BaseModel):
     created_at: datetime
     zoom_link: str
     category: str
-    
+
 
 class EventRepository:
+    def get_all(self):
+        
+
     def create(self, event: EventIn) -> EventOut:
         # connect the database
         try:

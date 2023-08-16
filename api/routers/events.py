@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends, Response
 from queries.events import EventIn, EventOut, EventRepository, Error
-from typing import Union
+from typing import Union, List
 
 
 router = APIRouter()
@@ -20,4 +20,8 @@ def create_event(
     return created_event
 
 
-# @router.get("/events")
+@router.get("/events", response_model=List[EventOut])
+def get_all(
+    repo: EventRepository = Depends(),
+):
+    return repo.get_all()
