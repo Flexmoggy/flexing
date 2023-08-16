@@ -11,7 +11,7 @@ steps = [
             expired BOOLEAN NOT NULL DEFAULT FALSE,
             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
             zoom_link VARCHAR(500),
-            category VARCHAR(100),
+            category VARCHAR(100)
         );
         """,
         # "Down" SQL statement
