@@ -3,19 +3,18 @@ steps = [
     [
     # CREATE TABLE 
     """
-    CREATE TABLE reviews (
+    CREATE TABLE review (
         id SERIAL PRIMARY KEY NOT NULL,
-        reviewer INT NOT NULL,
+        author INT NOT NULL,
         reviewee INT NOT NULL,
-        datetime VARCHAR(255),
-        rating INT ,
-        review TEXT,
-        CHECK (rating >= 1 AND rating <= 5)
+        date TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+        rating INT NOT NULL,
+        review_text TEXT
     );
     """,
     # DROP TABLE
     """
-    DROP TABLE reviews;
+    DROP TABLE review;
     """
     ]
 ]

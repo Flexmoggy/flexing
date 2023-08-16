@@ -18,3 +18,4 @@ def create_event(
     else:
         response.status_code = 400
     return created_event
+

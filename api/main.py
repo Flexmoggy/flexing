@@ -1,12 +1,12 @@
 from fastapi import FastAPI
-from routers import events
 from fastapi.middleware.cors import CORSMiddleware
 import os
-from routers import profiles, reviews
+from routers import profiles, reviews, events
 
 app = FastAPI()
 app.include_router(profiles.router)
 app.include_router(events.router)
+app.include_router(reviews.router)
 
 app.add_middleware(
     CORSMiddleware,

@@ -7,8 +7,24 @@ import ProfileCard from './ProfileCard'
   </h2> */
  
 function Profiles() {
+  
 
-const [profiles] = useState([
+  /*
+  const[profiles, setProfiles] = useState([]);
+  useEffect(() => {
+    fetchProfiles();
+  }, []);
+  
+  const fetchProfiles = async () => {
+    const response = await fetch('http://localhost:8000/profiles/')
+    if (response.ok) {
+        const data = await response.json();
+        setProfiles(data.profiles);
+    }
+  };
+  */
+
+ const [profiles] = useState([
   {
   userName: "A",
   skills: "Sleeping",
@@ -45,7 +61,7 @@ const [profiles] = useState([
   interests: "None",
   bio: "Even more stuff!"
   }
-]);
+]); 
 
 console.log(profiles)
   return (

@@ -2,9 +2,7 @@ from fastapi import APIRouter, Depends, Response
 from typing import Union, List
 from queries.profiles import ProfileIn, ProfileRepository, ProfileOut, Error
 
-
 router = APIRouter()
-
 
 @router.post("/profiles", response_model=Union[ProfileOut, Error])
 def create_profile(profile: ProfileIn,

@@ -40,7 +40,7 @@ class ProfileRepository:
                 with conn.cursor() as db:
                     result = db.execute(
                         """
-                        SELECT id,username, picture_url, skills, interests, bio
+                        SELECT id, username, picture_url, skills, interests, bio
                         FROM profile
                         ORDER BY id;
                         """
