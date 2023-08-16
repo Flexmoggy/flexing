@@ -5,8 +5,8 @@ from typing import Union
 
 router = APIRouter()
 
-
-@router.post("/event", response_model=Union[EventOut, Error])
+#/event --> /events
+@router.post("/events", response_model=Union[EventOut, Error])
 def create_event(
     event: EventIn,
     response: Response,
@@ -18,3 +18,6 @@ def create_event(
     else:
         response.status_code = 400
     return created_event
+
+
+# @router.get("/events")
