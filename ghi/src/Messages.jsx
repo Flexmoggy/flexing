@@ -13,7 +13,7 @@ function Messages() {
         </h2>
       </header>
       <div>
-        <button onClick={() => setcount(count+1)}>A Button</button>
+        
       </div>
     </div>
   );

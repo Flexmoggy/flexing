@@ -20,7 +20,7 @@ def create_event(
     return created_event
 
 
-@router.get("/events", response_model=List[EventOut])
+@router.get("/events", response_model=Union[Error, List[EventOut]])
 def get_all(
     repo: EventRepository = Depends(),
 ):

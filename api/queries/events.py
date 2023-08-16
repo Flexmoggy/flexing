@@ -1,6 +1,7 @@
 from pydantic import BaseModel
 from datetime import datetime
 from queries.pool import pool
+from typing import List, Union
 
 
 class Error(BaseModel):
@@ -31,8 +32,38 @@ class EventOut(BaseModel):
 
 
 class EventRepository:
-    def get_all(self):
-        
+    def get_all(self) -> Union[Error, List[EventOut]]:
+        try:
+            # connect the database
+            with pool.connection() as conn:
+                # get a cursor
+                with conn.cursor() as db:
+                    # Run our SELECT statement
+                    db.execute(
+                        """
+                        SELECT id, topic, author, partner, paired, expired, created_at, zoom_link, category
+                        FROM event
+                        ORDER BY created_at;
+                        """
+                    )
+                    return [
+                        EventOut(
+                            id=record[0],
+                            topic=record[1],
+                            author=record[2],
+                            partner=record[3],
+                            paired=record[4],
+                            expired=record[5],
+                            created_at=record[6],
+                            zoom_link=record[7],
+                            category=record[8],
+                        )
+                        for record in db
+                    ]
+        except Exception as e:
+            return Error(
+                message=f"Error occurred while retrieving 'events': {str(e)}"
+            )
 
     def create(self, event: EventIn) -> EventOut:
         # connect the database
