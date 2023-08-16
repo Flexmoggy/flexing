@@ -7,6 +7,7 @@ volumes:
 services:
   fastapi:
     environment:
+      SIGNING_KEY: eeabaa5734833aaa285f61b8e66eb41dd688c772de922e10d651e96221f3ee4f
       CORS_HOST: http://localhost:3000
       DATABASE_URL: postgresql://2ter_admin:Secretmove@db/DataBucket
       WAIT_HOSTS: db:5432
@@ -27,6 +28,7 @@ services:
     ports:
       - "3000:3000"
     environment:
+      SIGNING_KEY: eeabaa5734833aaa285f61b8e66eb41dd688c772de922e10d651e96221f3ee4f
       HOST_OS: ${OS}
       NODE_ENV: development
       HOST: "0.0.0.0"
@@ -39,6 +41,7 @@ services:
       POSTGRES_PASSWORD: Secretmove
       POSTGRES_USER: 2ter_admin
       POSTGRES_DB: DataBucket
+      SIGNING_KEY: eeabaa5734833aaa285f61b8e66eb41dd688c772de922e10d651e96221f3ee4f
     ports:
       - "15432:5432"
     volumes:
@@ -51,6 +54,7 @@ services:
     ports:
       - "8082:80"
     environment:
+      SIGNING_KEY: eeabaa5734833aaa285f61b8e66eb41dd688c772de922e10d651e96221f3ee4f
       PGADMIN_DEFAULT_EMAIL: admin@email.com
       PGADMIN_DEFAULT_PASSWORD: password
       PGADMIN_DISABLE_POSTFIX: 1
