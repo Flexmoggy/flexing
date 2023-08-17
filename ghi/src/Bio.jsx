@@ -2,7 +2,6 @@ import {useContextStore} from './ContextStore';
 
 function Bio() {
   const {userDict, setUserDict} = useContextStore()
-  console.log(userDict)
   return (
     <div className="bg-info" style={{height: '350px'}}>
       <header className="container-fluid text-center">
