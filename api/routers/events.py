@@ -6,11 +6,9 @@ from typing import Union
 router = APIRouter()
 
 
-@router.post("/event", response_model=Union[EventOut, Error])
+@router.post("/events", response_model=Union[EventOut, Error])
 def create_event(
-    event: EventIn,
-    response: Response,
-    repo: EventRepository = Depends()
+    event: EventIn, response: Response, repo: EventRepository = Depends()
 ):
     created_event = repo.create(event)
     if isinstance(created_event, EventOut):

@@ -21,6 +21,7 @@ class ReviewOut(BaseModel):
     rating: int
     review_text: Optional[str]
 
+
 class ReviewRepository:
     def update(self, review_id: int, review: ReviewIn) -> Union[ReviewOut, Error]:
         pass
@@ -85,3 +86,6 @@ class ReviewRepository:
                 return ReviewOut(id=id, **data)
 
 
+
+    def create(review: ReviewIn):
+        pass
