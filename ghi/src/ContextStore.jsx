@@ -6,10 +6,6 @@ export default ({children}) => {
 
     const [userDict, setUserDict] = useState([])
 
-    useEffect(() => {
-        fetchProfiles();
-    }, []);
-
     const fetchProfiles = async () => {
         const response = await fetch('http://localhost:8000/profiles/')
         console.log(response)
@@ -27,7 +23,7 @@ export default ({children}) => {
         count: count,
         setcount: setcount,
         userDict: userDict,
-        setUserDict: setUserDict
+        fetchProfiles: fetchProfiles
     }
     return <ContextStore.Provider value={store}>{children}</ContextStore.Provider> 
 

@@ -24,6 +24,25 @@ function Profiles() {
   };
   */
 
+  /*
+
+  <Grid container spacing={2}>
+  <Grid item xs={8} sm={6} md={4} lg={3} xl={2}>
+    <Item>xs=8</Item>
+  </Grid>
+  <Grid item xs={8} sm={6} md={4} lg={3} xl={2}>
+    <Item>xs=8</Item>
+  </Grid>
+  <Grid item xs={8} sm={6} md={4} lg={3} xl={2}>
+    <Item>xs=8</Item>
+  </Grid>
+  <Grid item xs={8} sm={6} md={4} lg={3} xl={2}>
+    <Item>xs=8</Item>
+  </Grid>
+</Grid>
+
+*/
+
  const [profiles] = useState([
   {
   userName: "A",
