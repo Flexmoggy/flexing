@@ -1,16 +1,14 @@
-import { useState } from "react";
-import { AuthProvider } from "@galvanize-inc/jwtdown-for-react";
+import React, { useState } from "react";
+import useToken from "@galvanize-inc/jwtdown-for-react";
 
 const AuthProvider = (props) => {
-
-    return (
-        <AuthContext.Provider value={{}}>
-            {props}
-        </AuthContext.Provider>
-    );
+  return (
+    <AuthContext.Provider value={{}}>
+      {props.children}
+    </AuthContext.Provider>
+  );
 };
 
-// we don't have this right now but this is a basic example
 const LoginForm = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -54,4 +52,4 @@ const LoginForm = () => {
   );
 };
 
-export default (LoginForm, AuthProvider);
+export { LoginForm, AuthProvider };

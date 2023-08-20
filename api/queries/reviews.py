@@ -2,7 +2,6 @@ from pydantic import BaseModel
 from typing import Optional
 from datetime import date
 
-
 class ReviewIn(BaseModel):
     reviewer: int
     reviewee: int
@@ -12,5 +11,4 @@ class ReviewIn(BaseModel):
 
 class ReviewRepository:
     def create(review: ReviewIn):
-        
-        
+        pass

@@ -11,6 +11,8 @@ import Me from './Me';
 import Profiles from './Profiles';
 import ViewProfile from './ViewProfile';
 import Messages from './Messages';
+import UserDataCard from './UserData';
+import Main from './main';
 
 function App() {
   const [userData, setUserData] = useState("");
@@ -37,17 +39,18 @@ function App() {
   return (
     <AuthProvider baseUrl={`${process.env.REACT_APP_API_HOST}`}>
       <BrowserRouter basename={basename}>
-        <Nav />
+        <Nav userData={userData} />
         <div className="container">
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Main />} />
             <Route path="/login" element={<LoginForm />} />
             <Route path="/signup" element={<SignUpForm />} />
-            <Route path="/accounts/:id" userData={userData} element={<AccountDetails />} />
+            <Route path="/accounts/:id" element={<AccountDetails userData={userData} />} />
             <Route path="/profiles" element={<Profiles />} />
             <Route path="/my_profile" element={<Me />} />
             <Route path="/view_profile" element={<ViewProfile />} />
             <Route path="/messages" element={<Messages />} />
+            <Route path="/userdata" element={<UserDataCard />} /> {/* Added this line */}
           </Routes>
         </div>
         <Footer />
